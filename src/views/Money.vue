@@ -1,8 +1,7 @@
 <template>
-    <div>
-        Money.vue
-        <Nav/>
-    </div>
+    <Layout>
+        <p>Money.vue</p>
+    </Layout>
 </template>
 
 <script lang='ts'>
@@ -10,7 +9,3 @@
         name:'Money',
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
