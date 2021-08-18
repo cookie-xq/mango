@@ -45,6 +45,7 @@
         float: left;
         background: transparent;
         border: none;
+        
         &.ok {
           height: 64 * 2px;
           float: right;
@@ -52,7 +53,7 @@
         &.zero {
           width: 25 * 2%;
         }
-        $bg: #f2f2f2;
+        $bg: #FED8A4;
         &:nth-child(1) {
           background: $bg;
         }

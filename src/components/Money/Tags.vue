@@ -29,7 +29,7 @@
       display: flex;
       flex-wrap: wrap;
       > li {
-        background: #d9d9d9;
+        background: #fdb553;
         $h: 24px;
         height: $h;
         line-height: $h;
@@ -46,7 +46,7 @@
         border: none;
         color: #999;
         border-bottom: 1px solid;
-        padding: 0 4px;
+        padding: 0 2px;
       }
     }
   }
