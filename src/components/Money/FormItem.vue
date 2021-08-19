@@ -5,7 +5,7 @@
         <input type="text"
               :value = "value"
               @input="onValueChanged($event.target.value)"
-              :placeholder="this.placehoder" />
+              :placeholder="placehoder" />
         
       </label>
     </div>
@@ -13,7 +13,7 @@
 
 <script lang="ts">
   import Vue from "vue";
-  import { Component, Prop, Watch } from "vue-property-decorator";
+  import { Component, Prop } from "vue-property-decorator";
 
   @Component
   export default class FormItem extends Vue{
@@ -22,7 +22,6 @@
     @Prop({required:true}) fileName!:string;
     @Prop() placehoder?:string;
 
-    @Watch('value')
     onValueChanged(value:string){
       this.$emit('update:value',value);
     }
