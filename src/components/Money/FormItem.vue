@@ -3,8 +3,10 @@
       <label class="formItem">
         <span class="name">{{this.fileName}}</span>
         <input type="text"
-              v-model="value"
+              :value = "value"
+              @input="onValueChanged($event.target.value)"
               :placeholder="this.placehoder" />
+        
       </label>
     </div>
 </template>
@@ -24,6 +26,7 @@
     onValueChanged(value:string){
       this.$emit('update:value',value);
     }
+    
   }
 </script>
 
