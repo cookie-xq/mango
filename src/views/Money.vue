@@ -8,9 +8,9 @@
             fileName="备注"
             placehoder="在这里输入备注"/>
     </div>
-    
-    <Tags :data-source.sync = "tags" @update:value="onUpdateTags"/>
-    
+    <Tags/> 
+    {{count}}
+    <button @click="add">+1</button>
   </Layout>
 </template>
 
@@ -25,17 +25,23 @@
   import store from '@/store/index2';
 
   @Component({
-    components:{NumberPad,Types,FormItem,Tags}
+    components: {Tags, FormItem, Types, NumberPad},
+    computed: {
+      count() {
+        return store.count;
+      },
+      recordList() {
+        return store.recordList;
+      }
+    }
   })
   export default class Money extends Vue{
-    tags = store.tagList;
-    recordList = store.recordList;
+    add() {
+      store.addCount();
+    }
     record: RecordItem = {
         tags: [], notes: '', type: '-', amount: 0
       };
-    onUpdateTags(value: string[]){
-      this.record.tags = value;
-    }
     onUpdateNotes(value: string){
       this.record.notes = value;
     }
