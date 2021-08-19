@@ -6,7 +6,8 @@
       <span class="rightIcon"></span>
     </div>
     <div class="form-wrapper">
-      <FormItem fileName="标签名" placehoder="请输入标签名" />
+      <FormItem :value="tag.name" @update:value="updateTag" 
+                fileName="标签名" placehoder="请输入标签名" />
     </div>
     <div class="button-wrapper">
       <Button>删除标签</Button>
@@ -23,16 +24,23 @@ import Button from '@/components/Button.vue'
 
 @Component({ components: { FormItem, Button } })
 export default class EditLabel extends Vue {
+  tag?: { id:string,name:string } = undefined;
   created() {
     const id = this.$route.params.id
     tagListModel.fetch()
     const tags = tagListModel.data
     const tag = tags.filter((t) => t.id === id)[0]
     if (tag) {
-      console.log(tag)
+      this.tag = tag;
     } else {
       this.$router.replace('/404')
     }
+  }
+  updateTag(name:string){
+    if(this.tag){
+      tagListModel.update(this.tag.id,name);
+    }
+    
   }
 }
 </script>
