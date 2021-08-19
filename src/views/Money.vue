@@ -8,9 +8,7 @@
             fileName="备注"
             placehoder="在这里输入备注"/>
     </div>
-    <Tags/> 
-    {{count}}
-    <button @click="add">+1</button>
+    <Tags/>
   </Layout>
 </template>
 
@@ -22,23 +20,18 @@
   import Tags from '@/components/Money/Tags.vue'
   import Vue from 'vue'
   import {Component} from 'vue-property-decorator';
-  import store from '@/store/index2';
+  import oldStore from '@/store/index2.ts';
 
   @Component({
     components: {Tags, FormItem, Types, NumberPad},
     computed: {
-      count() {
-        return store.count;
-      },
       recordList() {
-        return store.recordList;
+        return this.$store.state.count;
       }
     }
   })
   export default class Money extends Vue{
-    add() {
-      store.addCount();
-    }
+    recordList = oldStore.recordList;
     record: RecordItem = {
         tags: [], notes: '', type: '-', amount: 0
       };
@@ -46,7 +39,7 @@
       this.record.notes = value;
     }
     saveRecord(){
-      store.createRecord(this.record);
+      oldStore.createRecord(this.record);
     }
   }
 </script>
