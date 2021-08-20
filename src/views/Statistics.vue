@@ -12,7 +12,6 @@
         <ol>
           <li v-for="item in group.items" :key="item.id" class="record">
             <span>{{tagString(item.tags)}}</span>
-            <!-- <span v-for="value in item.tags" :key="value.id">{{tagString(value)}}</span> -->
             <span class="notes">{{ item.notes }}</span>
             <span>￥{{ item.amount }} </span>
           </li>
@@ -100,7 +99,7 @@ export default class Statistics extends Vue {
   .type-tabs-item {
     background: white;
     &.selected {
-      background: #c4c4c4;
+      background: #fdb553;
       &::after {
         display: none;
       }
