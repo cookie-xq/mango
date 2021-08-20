@@ -40,7 +40,6 @@ export default class Statistics extends Vue {
     if (day.isSame(now, 'day')) {
       return '今天'
     } else if (day.isSame(now.subtract(1, 'day'), 'day')) {
-      console.log('hi')
       return '昨天'
     } else if (day.isSame(now.subtract(2, 'day'), 'day')) {
       return '前天'
@@ -96,9 +95,7 @@ export default class Statistics extends Vue {
     }
     result.map((group) => {
       group.total = group.items.reduce((sum, item) => {
-        console.log(sum);
-        console.log(item);
-        return sum + parseFloat(item.amount)
+        return sum + parseFloat(item.amount.toString())
       }, 0)
     })
     return result
