@@ -3,7 +3,7 @@ type RecordItem = {
     notes: string
     type: string
     amount: number 
-    createdAt?: Date //除了写数据类型之外还可以写一个类（构造函数），类是对 object 的分类
+    createdAt?: string //除了写数据类型之外还可以写一个类（构造函数），类是对 object 的分类
 }
 
 type Tag = {
