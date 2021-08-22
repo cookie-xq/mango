@@ -33,13 +33,11 @@
   .formItem {
     font-size: 14px;
     padding-left: 16px;
-    display: flex;
-    align-items: center;
     .name {
       padding-right: 16px;
     }
     input {
-      height: 40px;
+      line-height: 40px;
       flex-grow: 1;
       background: transparent;
       border: none;

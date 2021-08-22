@@ -9,7 +9,7 @@
             fileName="备注"
             placehoder="在这里输入备注"/>
     </div>
-    <Tags @update:value="onUpdateTags"/>
+    <Tags :value.sync="record.tags"/>
   </Layout>
 </template>
 
@@ -36,9 +36,6 @@
     };
     created() {
       this.$store.commit('fetchRecords');
-    }
-    onUpdateTags(value: string[]) {
-      this.record.tags = value; //Tag[id:string,name:string] string[]
     }
     onUpdateNotes(value: string){
       this.record.notes = value;
