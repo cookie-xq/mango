@@ -1,8 +1,12 @@
 import createId from '@/lib/createId';
 
 const localStorageKeyName = 'tagList';
-
+window.localStorage.setItem(localStorageKeyName, '衣');
+window.localStorage.setItem(localStorageKeyName, '食');
+window.localStorage.setItem(localStorageKeyName, '住');
+window.localStorage.setItem(localStorageKeyName, '行');
 const tagStore = {
+  
   tagList: [] as Tag[],
   fetchTags() {
     this.tagList = JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]');
@@ -55,6 +59,8 @@ const tagStore = {
     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.tagList));
   }
 };
+
+
 
 tagStore.fetchTags();
 

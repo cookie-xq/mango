@@ -5,9 +5,10 @@
     <Tabs :dataSource="recordTypeList"
           :value.sync="record.type"/>
     <div class="notes">
-      <FormItem @update:value="onUpdateNotes"
-            fileName="备注"
-            placehoder="在这里输入备注"/>
+      <FormItem fileName="备注"
+                placehoder="在这里输入备注"
+                :value.sync="record.notes"
+      />
     </div>
     <Tags :value.sync="record.tags"/>
   </Layout>
@@ -31,6 +32,8 @@
       return this.$store.state.recordList;
     }
 
+    recordTypeList = recordTypeList;
+
     record: RecordItem = {
         tags: [], notes: '', type: '-', amount: 0
     };
@@ -41,10 +44,15 @@
       this.record.notes = value;
     }
     saveRecord(){
+      if(!this.record.tags || this.record.tags.length ===0){
+        return window.alert('请至少选择一个标签');
+      }
       this.$store.commit('createRecord', this.record);
+      if(this.$store.state.createRecordError === null){
+        window.alert('记账成功');
+        this.record.notes = '';
+      }
     }
-
-    recordTypeList = recordTypeList;
   }
 </script>
 

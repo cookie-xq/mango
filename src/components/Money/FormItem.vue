@@ -5,8 +5,7 @@
         <input type="text"
               :value = "value"
               @input="onValueChanged($event.target.value)"
-              :placeholder="placehoder" />
-        
+              :placeholder="this.placehoder" />    
       </label>
     </div>
 </template>
@@ -17,7 +16,7 @@
 
   @Component
   export default class FormItem extends Vue{
-    @Prop({default:''}) value!:string;
+    @Prop({default:''}) readonly value!:string;
 
     @Prop({required:true}) fileName!:string;
     @Prop() placehoder?:string;
@@ -25,7 +24,6 @@
     onValueChanged(value:string){
       this.$emit('update:value',value);
     }
-    
   }
 </script>
 
