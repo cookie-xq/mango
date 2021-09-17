@@ -10,6 +10,7 @@
                 :value.sync="record.notes"
       />
     </div>
+    <!-- <Tags @update:value="record.tags = $event"/> -->
     <Tags :value.sync="record.tags"/>
   </Layout>
 </template>

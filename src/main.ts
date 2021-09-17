@@ -22,7 +22,7 @@ new Vue({
 if(document.documentElement.clientWidth > 500){
   window.alert('请使用手机打开本页面，以保证最佳浏览效果');
   const img = document.createElement('img')
-  img.src = './QRCODE.png';
+  img.src = './qrcode.png';
   img.style.position = 'fixed';
   img.style.left = '50%';
   img.style.top = '50%';

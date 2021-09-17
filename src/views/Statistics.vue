@@ -52,16 +52,9 @@ export default class Statistics extends Vue {
       return day.format('YYYY年M月D日')
     }
   }
-  tagString(tags: Tag[]) {
-    if (tags.length === 0) {
-      return '无'
-    } else {
-      const arr = []
-      for (let i = 0; i < tags.length; i++) {
-        arr.push(tags[i].name)
-      }
-      return arr.join('、')
-    }
+  tagString(tags: Tag[]){
+    return tags.length === 0 ? '无' :
+      tags.map(t => t.name).join('、');
   }
   get recordList() {
     return (this.$store.state as RootState).recordList

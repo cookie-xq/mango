@@ -44,6 +44,7 @@
       if (this.output.indexOf('.') >= 0 && input === '.') {return;}
       this.output += input;
     }
+
     remove(){
       if(this.output.length === 1){
         this.output = '0';
@@ -51,6 +52,7 @@
         this.output = this.output.slice(0,-1);
       }
     }
+    
     clear(){this.output = '0';}
 
     ok(){
