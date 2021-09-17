@@ -38,11 +38,14 @@ export default class EditLabel extends Vue {
 
   update(name: string){
     if(this.currentTag){
-      this.$store.commit('updateTag', {
+      if(!name){
+        alert('标签名不能为空')
+      }else{
+        this.$store.commit('updateTag', {
         id: this.currentTag.id, name
       });
+      }
     }
-    
   }
   remove(){
     if(this.currentTag){
